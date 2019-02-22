@@ -11,6 +11,4 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   $locationProvider.hashPrefix('!');
 
   $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
-
-//http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=fernandoza&api_key=a0a0ddf863c0fb600a0eff7243ed04af&format=json
+``}]);
