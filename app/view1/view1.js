@@ -1,5 +1,7 @@
 'use strict';
 
+let apiUrl = 'http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=fernandoza&api_key=a0a0ddf863c0fb600a0eff7243ed04af&format=json&period=overall';
+
 angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -9,9 +11,17 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [ () => {
-      let apiUrl = 'http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=fernandoza&api_key=a0a0ddf863c0fb600a0eff7243ed04af&format=json&period=overall';
-      fetch(apiUrl);
+.controller('View1Ctrl', [ function() {
+    let lastFM = this;
+    lastFM.getArtists = () => {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(results => {
+                console.log(results);
+                this.artists = results.topartists.artist;
+            });
+    }
+
 }]);
 
 
