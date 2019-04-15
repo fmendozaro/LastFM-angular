@@ -12,16 +12,15 @@ angular.module('myApp.view1', ['ngRoute'])
 }])
 
 .controller('View1Ctrl', [ function() {
-    let lastFM = this;
-    lastFM.getArtists = () => {
+    httpClie
+    this.fake = 'yes';
         fetch(apiUrl)
             .then(response => response.json())
             .then(results => {
-                console.log(results);
+                console.log(results.topartists);
+                this.fake = 'no';
                 this.artists = results.topartists.artist;
             });
-    }
-
 }]);
 
 

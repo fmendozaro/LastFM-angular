@@ -1,5 +1,7 @@
 <div ng-controller="View1Ctrl as artistsView">
-    <li ng-repeat="artist in artistsView.getArtists()">
+    {{artistsView.fake}}
+    <li ng-repeat="artist in artistsView.artists">
+        {{ artist }}
         <span>{{artist.name}}</span>
     </li>
 </div>
